@@ -6,12 +6,15 @@ import { withGoogleMap, GoogleMap, withScriptjs, BicyclingLayer, Marker, Polylin
 import DrawingManager from "react-google-maps/lib/components/drawing/DrawingManager";
 import { fetchRoutes } from '../actions/get-routes';
 
+
 class MyBikeMapComponent extends React.Component {
 	componentDidMount() {
-		this.props.dispatch(fetchRoutes());
+		// render map so I can rerender with route cleared
 	}
 
-	renderRoute() {
+	
+
+	renderRouteLoadOrError() {
 		if (this.props.loading) {
 			return <Spinner spinnername="circle" fadeIn="none" />;
 		}
@@ -20,12 +23,11 @@ class MyBikeMapComponent extends React.Component {
 				return <strong>{this.props.error}</strong>;
 		}
 		console.log(this.props.route);
-		return this.props.route;
 	}
 
 	render() {
 		return (
-			<main role='main'>
+			<section>
 				<GoogleMap
           ref={(map) => this._map = map} // allows access to google.maps.Map
           defaultZoom={13}
@@ -42,7 +44,7 @@ class MyBikeMapComponent extends React.Component {
               editable: false, // set up condition to set this to true when user editing route -- extension feature
               zIndex: 1,
             }}   
-            path={this.renderRoute()}
+            path={this.props.route}
           />
 
 					<DrawingManager 
@@ -71,7 +73,13 @@ class MyBikeMapComponent extends React.Component {
 					/>
 
 				</GoogleMap>
-			</main>
+
+				<div>
+					{this.renderRouteLoadOrError()}
+				</div>
+				
+
+			</section>
 		)
 	}
 }

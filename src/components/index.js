@@ -1,14 +1,20 @@
 import React from 'react';
 
 import MyBikeMapComponent from './bike-map';
+import LoadButton from './load-button';
 
 export default function App(props) {
-    return(
-            <MyBikeMapComponent 
-                googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyDM_ehj1epOAaYbWLgIG2vWT4ErYl-2PJg&v=3.exp&libraries=geometry,drawing,places"
-                loadingElement={<div style={{ height: `100%` }} />}
-                containerElement={<div style={{ height: `400px` }} />}
-                mapElement={<div style={{ height: `100%` }} />}
-            />
+  return(
+  	<main>
+      <MyBikeMapComponent 
+        googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyDM_ehj1epOAaYbWLgIG2vWT4ErYl-2PJg&v=3.exp&libraries=geometry,drawing,places"
+        loadingElement={<div style={{ height: `100%` }} />}
+        containerElement={<div style={{ height: `400px` }} />}
+        mapElement={<div style={{ height: `100%` }} />}
+      />
+
+      <LoadButton name={'Load Route'} />
+
+    </main>        
     )
 }
