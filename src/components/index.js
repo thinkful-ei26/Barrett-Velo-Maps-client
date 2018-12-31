@@ -2,6 +2,7 @@ import React from 'react';
 
 import MyBikeMapComponent from './bike-map';
 import LoadButton from './load-button';
+import RouteDecription from './route-desc';
 
 export default function App(props) {
   return(
@@ -12,9 +13,17 @@ export default function App(props) {
         containerElement={<div style={{ height: `400px` }} />}
         mapElement={<div style={{ height: `100%` }} />}
       />
+			<section className="route-description">
+				<RouteDecription 
+					routeName={'Test Route'}
+					routeDescription={'This is a fun ride!'}
+				/>
+			</section>
 
-      <LoadButton name={'Load Route'} />
-
+			<section className="button-section">
+				<LoadButton name={'Load Route'} />
+			</section>
+      
     </main>        
     )
 }

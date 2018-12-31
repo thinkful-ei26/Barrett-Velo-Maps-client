@@ -6,9 +6,9 @@ export const fetchRoutesRequest = () => ({
 });
 
 export const FETCH_ROUTES_SUCCESS = 'FETCH_ROUTES_SUCCESS';
-export const fetchRoutesSuccess = routes => ({
+export const fetchRoutesSuccess = (route) => ({
     type: FETCH_ROUTES_SUCCESS,
-    routes
+    route
 });
 
 export const FETCH_ROUTES_ERROR = 'FETCH_ROUTES_ERROR';

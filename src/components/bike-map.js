@@ -14,16 +14,16 @@ class MyBikeMapComponent extends React.Component {
 
 	
 
-	renderRouteLoadOrError() {
-		if (this.props.loading) {
-			return <Spinner spinnername="circle" fadeIn="none" />;
-		}
+	// renderRouteLoadOrError() {
+	// 	if (this.props.loading) {
+	// 		return <Spinner spinnername="circle" fadeIn="none" />;
+	// 	}
 
-		if (this.props.error) {
-				return <strong>{this.props.error}</strong>;
-		}
-		console.log(this.props.route);
-	}
+	// 	if (this.props.error) {
+	// 			return <strong>{this.props.error}</strong>;
+	// 	}
+	// 	console.log(this.props.route);
+	// }
 
 	render() {
 		return (
@@ -44,7 +44,7 @@ class MyBikeMapComponent extends React.Component {
               editable: false, // set up condition to set this to true when user editing route -- extension feature
               zIndex: 1,
             }}   
-            path={this.props.route}
+            path={this.props.route.path}
           />
 
 					<DrawingManager 
@@ -74,9 +74,9 @@ class MyBikeMapComponent extends React.Component {
 
 				</GoogleMap>
 
-				<div>
+				{/* <div>
 					{this.renderRouteLoadOrError()}
-				</div>
+				</div> */}
 				
 
 			</section>

@@ -5,7 +5,11 @@ import {
 } from '../actions/get-routes';
 
 const initialState = {
-    route: [],
+    route: {
+        name: '',
+        description: '',
+        path: []
+    },
     loading: false,
     error: null
 }
@@ -17,8 +21,13 @@ export function getRouteReducer(state=initialState, action) {
             loading: true
         })
     } else if (action.type === FETCH_ROUTES_SUCCESS) {
+        console.log(action.route);
         return Object.assign({}, state, {
-            route: [...action.routes],
+            route: {
+                name: action.route[0].name,
+                description: action.route[0].description,
+                path: [...action.route[0].path]
+            },
             loading: false,
             error: null
         })
