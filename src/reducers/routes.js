@@ -4,7 +4,7 @@ import {
   FETCH_ROUTES_ERROR 
 } from '../actions/get-routes';
 
-import { SAVE_NEW_ROUTE_INPUT, SAVE_NEW_ROUTE_PATH } from '../actions/post-routes';
+import { SAVE_NEW_ROUTE_PATH } from '../actions/post-routes';
 
 const initialState = {
   route: {
@@ -43,15 +43,6 @@ export function getRouteReducer(state=initialState, action) {
 }
 
 export function postRouteReducer(state=initialState, action) {
-  if (action.type === SAVE_NEW_ROUTE_INPUT) {
-    return Object.assign({}, state, {
-      route: {
-        name: action.input.name,
-				description: action.input.description,
-				path: state.route.path
-      }
-    })
-  } 
 
   if (action.type === SAVE_NEW_ROUTE_PATH) {
   	return Object.assign({}, state, {
