@@ -3,6 +3,7 @@ import React from 'react';
 import MyBikeMapComponent from './bike-map';
 import LoadButton from './load-button';
 import RouteDecription from './route-desc';
+import NewRouteForm from './create-routes-form';
 
 export default function App(props) {
   return(
@@ -22,6 +23,10 @@ export default function App(props) {
 
 			<section className="button-section">
 				<LoadButton name={'Load Route'} />
+			</section>
+
+			<section>
+				<NewRouteForm />
 			</section>
       
     </main>        

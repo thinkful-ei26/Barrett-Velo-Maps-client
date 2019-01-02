@@ -4,15 +4,13 @@ import { connect } from 'react-redux';
 import Spinner from 'react-spinkit';
 import { withGoogleMap, GoogleMap, withScriptjs, BicyclingLayer, Marker, Polyline  } from 'react-google-maps';
 import DrawingManager from "react-google-maps/lib/components/drawing/DrawingManager";
-import { fetchRoutes } from '../actions/get-routes';
+import { saveNewRoutePath } from '../actions/post-routes';
 
 
 class MyBikeMapComponent extends React.Component {
 	componentDidMount() {
 		// render map so I can rerender with route cleared
 	}
-
-	
 
 	// renderRouteLoadOrError() {
 	// 	if (this.props.loading) {
@@ -24,6 +22,16 @@ class MyBikeMapComponent extends React.Component {
 	// 	}
 	// 	console.log(this.props.route);
 	// }
+
+	onPolylineComplete = poly => {
+		const polyArray = poly.getPath().getArray();
+		let paths = [];
+		polyArray.forEach(function(path){
+			paths.push({lat: path.lat(), lng: path.lng()});
+		});
+		this.props.dispatch(saveNewRoutePath(paths))
+		// after lunch: creat action to dispatch here to get path into post store. Finish post to db, then work on clear
+	}
 
 	render() {
 		return (
@@ -48,9 +56,9 @@ class MyBikeMapComponent extends React.Component {
           />
 
 					<DrawingManager 
-					// 	onPolylineComplete={(e) => {
-					// 		this.onPolylineComplete(e);
-					// }}
+						onPolylineComplete={(e) => {
+							this.onPolylineComplete(e);
+						}}
 						defaultDrawingMode={google.maps.drawing.OverlayType.POLYLINE}
 						defaultOptions={{
 							drawingControl: true,
@@ -86,9 +94,9 @@ class MyBikeMapComponent extends React.Component {
 
 const mapStateToProps = state => {
 	return {
-		route: state.route,
-		loading: state.loading,
-		error: state.error
+		route: state.get.route,
+		loading: state.get.loading,
+		error: state.get.error
 	}
 }
 

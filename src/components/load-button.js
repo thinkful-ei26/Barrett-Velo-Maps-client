@@ -11,9 +11,9 @@ function LoadButton(props) {
 
 const mapStateToProps = state => {
 	return {
-		route: state.route,
-		loading: state.loading,
-		error: state.error
+		route: state.get.route,
+		loading: state.get.loading,
+		error: state.get.error
 	}
 }
 
