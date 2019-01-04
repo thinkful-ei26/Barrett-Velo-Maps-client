@@ -1,35 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { reduxForm, Field, SubmissionError, focus } from 'redux-form';
+import { reduxForm, Field, focus } from 'redux-form';
 import { required, nonEmpty } from '../validators';
 import Input from './input-field';
-// import {  } from '../actions/post-routes';
+import { saveRoute, doneCreatingRoute } from '../actions/post-routes';
 
 
 class NewRouteForm extends React.Component {
-  // onChange(values) {
-	// 	console.log(values.name);
-	// 	// const name = values.name;
-	// 	let nameValue;
-	// 	let descriptionValue;
-	// 	if (values.name === 'name') {
-	// 		nameValue = values.value;
-	// 		console.log(nameValue)
-	// 	} else if (values.name === 'description') {
-	// 		descriptionValue = values.value;
-	// 		console.log(descriptionValue);
-	// 	}
-
-	// 	let valuesObj = {
-	// 		name: nameValue,
-	// 		description: descriptionValue
-	// 	}
-
-	// 	console.log(valuesObj);
-	// 	// this.props.dispatch(saveNewRouteInput(valuesObj));
-	// 	// console.log(values);
-	// }
-	
 	onSubmit(values) {
 
 		const newRoute = {
@@ -37,8 +14,7 @@ class NewRouteForm extends React.Component {
 			description: values.description,
 			path: this.props.path
 		}
-		
-		// this.props.dispatch(saveNewRouteInput(values));
+		return this.props.dispatch(saveRoute(newRoute));
 	}
 
   render() {
@@ -62,12 +38,11 @@ class NewRouteForm extends React.Component {
     return (
       // form goes here, still need validators and error messages, and a fetch(post)
       <form
-				onSubmit={this.props.handleSubmit(values =>{
+				// onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
+				onSubmit={this.props.handleSubmit(values => {
 					this.onSubmit(values)
-				}
-					
-				)}
-
+					this.props.dispatch(doneCreatingRoute())
+				})}
       >
 				{successMessage}
         {errorMessage}
@@ -87,6 +62,7 @@ class NewRouteForm extends React.Component {
 				/>
 
 				<button
+					// onClick={() => this.props.dispatch(doneCreatingRoute())}
           type="submit"
           disabled={this.props.pristine || this.props.submitting || !this.props.path.length}>
           Save Route
@@ -100,7 +76,8 @@ class NewRouteForm extends React.Component {
 
 const mapStateToProps = state => {
 	return {
-		path: state.post.route.path,	
+		path: state.post.newRoute.path,	
+		creatingRoute: state.post.creatingRoute
 	}
 }
 
@@ -108,6 +85,8 @@ NewRouteForm = connect(mapStateToProps)(NewRouteForm);
 
 export default reduxForm({
     form: 'new route',
-    onSubmitFail: (errors, dispatch) =>
-    dispatch(focus('new route', Object.keys(errors)[0]))
+    onSubmitFail: (errors, dispatch) => {
+			console.log('error is', errors)
+			dispatch(focus('new route', Object.keys(errors)[0]))
+		} 
 })(NewRouteForm);

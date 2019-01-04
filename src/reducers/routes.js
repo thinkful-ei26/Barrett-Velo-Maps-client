@@ -1,19 +1,31 @@
 import { 
 	FETCH_ROUTES_REQUEST, 
 	FETCH_ROUTES_SUCCESS, 
-  FETCH_ROUTES_ERROR 
+	FETCH_ROUTES_ERROR,
+	SET_CURRENT_ROUTE 
 } from '../actions/get-routes';
+import { SAVE_NEW_ROUTE_PATH, CREATING_ROUTE, DONE_CREATING_ROUTE } from '../actions/post-routes';
 
-import { SAVE_NEW_ROUTE_PATH } from '../actions/post-routes';
-
+// const initialState = {
+//   route: {
+//     name: '',
+//     description: '',
+//     path: []
+//   },
+//   loading: false,
+//   error: null
+// }
 const initialState = {
-  route: {
-    name: '',
-    description: '',
-    path: []
-  },
+	routes: [],
+	newRoute: {
+		name: '',
+		description: '',
+	  path: []
+	},
+	currentRoute: {},
   loading: false,
-  error: null
+  error: null,
+  creatingRoute: false
 }
 
 export function getRouteReducer(state=initialState, action) {
@@ -23,13 +35,8 @@ export function getRouteReducer(state=initialState, action) {
       loading: true
     })
   } else if (action.type === FETCH_ROUTES_SUCCESS) {
-    	console.log(action.route);
     	return Object.assign({}, state, {
-      	route: {
-        	name: action.route[0].name,
-        	description: action.route[0].description,
-        	path: [...action.route[0].path]
-        },
+      	routes: [...action.route],
         loading: false,
         error: null
       })
@@ -38,7 +45,14 @@ export function getRouteReducer(state=initialState, action) {
           loading: false,
           error: action.error
         })
-    }
+		}
+		
+		if (action.type === SET_CURRENT_ROUTE) {
+			return Object.assign({}, state, {
+				currentRoute: action.route
+			})
+		}
+		
   return state;
 }
 
@@ -46,13 +60,25 @@ export function postRouteReducer(state=initialState, action) {
 
   if (action.type === SAVE_NEW_ROUTE_PATH) {
   	return Object.assign({}, state, {
-      route: {
-				name: state.route.name,
-				description: state.route.description,
+      newRoute: {
+				name: state.newRoute.name,
+				description: state.newRoute.description,
         path: action.path
       }
     })
   }
 
+  if (action.type === CREATING_ROUTE) {
+  	return Object.assign({}, state, {
+      creatingRoute: true
+    })
+  }
+
+  if (action.type === DONE_CREATING_ROUTE) {
+  	return Object.assign({}, state, {
+      creatingRoute: false
+    })
+  }
+  
   return state;
 }

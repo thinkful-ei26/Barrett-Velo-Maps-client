@@ -12,7 +12,7 @@ function RouteDecription(props) {
 
 const mapStateToProps = state => {
     return {
-        route: state.get.route
+        route: state.get.currentRoute
     }
 }
 
