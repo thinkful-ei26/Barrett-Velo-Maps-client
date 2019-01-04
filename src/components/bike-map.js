@@ -21,17 +21,24 @@ class MyBikeMapComponent extends React.Component {
 	// 	}
 	// 	console.log(this.props.route);
 	// }
-
+	currentPolyline;
 	onPolylineComplete = poly => {
+		this.currentPolyline = poly;
 		const polyArray = poly.getPath().getArray();
 		let paths = [];
 		polyArray.forEach(function(path){
 			paths.push({lat: path.lat(), lng: path.lng()});
 		});
-		this.props.dispatch(saveNewRoutePath(paths))
+		this.props.dispatch(saveNewRoutePath(paths));
+	}
+
+	removePolyline() {
+		this.currentPolyline.setMap(null);
 	}
 
 	render() {
+		// ---- TODO ---- refactor conditional rendering to functions later 
+		// render new route form, clear map
 		if (this.props.creatingRoute) {
 			return (
 				<div>
@@ -45,8 +52,8 @@ class MyBikeMapComponent extends React.Component {
 							<BicyclingLayer autoUpdate />	
 
 							<DrawingManager 
-								onPolylineComplete={(e) => {
-									this.onPolylineComplete(e);
+								onPolylineComplete={(polyline) => {
+									this.onPolylineComplete(polyline);
 								}}
 								defaultDrawingMode={google.maps.drawing.OverlayType.POLYLINE}
 								defaultOptions={{
@@ -75,11 +82,22 @@ class MyBikeMapComponent extends React.Component {
 					<section className="new-route-form">
 						<NewRouteForm />
 					</section>
+					
+					<button className="clear-map-button"
+						onClick={() => this.removePolyline()}
+					>
+						Clear Map
+					</button>
+								
 				</div>
 			);
 		}
-		// refactor to functions later TODO
+		
 		if (!this.props.creatingRoute) {
+			if (this.currentPolyline) {
+				this.removePolyline();
+			}
+			
 			return (
 				<section className="map-container">
 					<GoogleMap
@@ -131,6 +149,7 @@ class MyBikeMapComponent extends React.Component {
 				</section>
 			)
 		}
+		// may be pointless, creating route is either true or false
 		return (
 			<section className="map-container">
 				<GoogleMap
