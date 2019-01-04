@@ -5,7 +5,7 @@ import Spinner from 'react-spinkit';
 import { withGoogleMap, GoogleMap, withScriptjs, BicyclingLayer, Marker, Polyline  } from 'react-google-maps';
 import DrawingManager from "react-google-maps/lib/components/drawing/DrawingManager";
 import { saveNewRoutePath } from '../actions/post-routes';
-import { fetchRoutes } from '../actions/get-routes';
+import AddRouteButton from './add-route-button';
 import NewRouteForm from './create-routes-form';
 
 
@@ -79,12 +79,15 @@ class MyBikeMapComponent extends React.Component {
 						</GoogleMap>
 					</section>
 
-					<section className="new-route-form">
+					<div className="new-route-form">
 						<NewRouteForm />
-					</section>
+					</div>
 					
 					<button className="clear-map-button"
-						onClick={() => this.removePolyline()}
+						onClick={() => {
+							if (this.currentPolyline) {
+							this.removePolyline();
+						}}}
 					>
 						Clear Map
 					</button>
@@ -92,61 +95,70 @@ class MyBikeMapComponent extends React.Component {
 				</div>
 			);
 		}
-		
+
+		// not creating new route, hide form, show button
 		if (!this.props.creatingRoute) {
+
+			// clears polyline off map if it exists
 			if (this.currentPolyline) {
 				this.removePolyline();
 			}
 			
 			return (
-				<section className="map-container">
-					<GoogleMap
-						ref={(map) => this._map = map} // allows access to google.maps.Map
-						defaultZoom={13}
-						defaultCenter={{ lat: 39.753998, lng: -105.001054 }} // set to Denver, later set up geolocation as bonus
-					>
+				<div>
+					<section className="map-container">
+						<GoogleMap
+							ref={(map) => this._map = map} // allows access to google.maps.Map
+							defaultZoom={13}
+							defaultCenter={{ lat: 39.753998, lng: -105.001054 }} // set to Denver, later set up geolocation as bonus
+						>
 
-						<BicyclingLayer autoUpdate />
+							<BicyclingLayer autoUpdate />
 
-						<Polyline 
-							defaultOptions={{
-								strokeColor: `#0000ff`,
-								strokeOpacity: 1,
-								strokeWeight: 5,
-								clickable: true,
-								editable: false, // set up condition to set this to true when user editing route -- extension feature
-								zIndex: 1,
-							}}   
-							path={this.props.currentRoutePath}
-						/>
-	
-						<DrawingManager 
-							onPolylineComplete={(e) => {
-								this.onPolylineComplete(e);
-							}}
-							defaultDrawingMode={google.maps.drawing.OverlayType.POLYLINE}
-							defaultOptions={{
-								drawingControl: true,
-								drawingControlOptions: {
-									position: google.maps.ControlPosition.TOP_CENTER,
-									drawingModes: [
-										google.maps.drawing.OverlayType.POLYLINE,
-										google.maps.drawing.OverlayType.MARKER
-									],
-								},
-								polylineOptions: {
+							<Polyline 
+								defaultOptions={{
 									strokeColor: `#0000ff`,
 									strokeOpacity: 1,
 									strokeWeight: 5,
 									clickable: true,
-									editable: true,
+									editable: false, // set up condition to set this to true when user editing route -- extension feature
 									zIndex: 1,
-								},
-							}}
-						/>
-	
-					</GoogleMap>
-				</section>
+								}}   
+								path={this.props.currentRoutePath}
+							/>
+		
+							<DrawingManager 
+								onPolylineComplete={(e) => {
+									this.onPolylineComplete(e);
+								}}
+								defaultDrawingMode={google.maps.drawing.OverlayType.POLYLINE}
+								defaultOptions={{
+									drawingControl: true,
+									drawingControlOptions: {
+										position: google.maps.ControlPosition.TOP_CENTER,
+										drawingModes: [
+											google.maps.drawing.OverlayType.POLYLINE,
+											google.maps.drawing.OverlayType.MARKER
+										],
+									},
+									polylineOptions: {
+										strokeColor: `#0000ff`,
+										strokeOpacity: 1,
+										strokeWeight: 5,
+										clickable: true,
+										editable: true,
+										zIndex: 1,
+									},
+								}}
+							/>
+		
+						</GoogleMap>
+					</section>
+					
+					<AddRouteButton />
+
+				</div>
+				
 			)
 		}
 		// may be pointless, creating route is either true or false

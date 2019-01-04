@@ -68,6 +68,10 @@ class NewRouteForm extends React.Component {
           Save Route
         </button>
 
+				<span><button onClick={() => this.props.dispatch(doneCreatingRoute())}>
+					Cancel
+				</button></span>
+
       </form>
     )
   }

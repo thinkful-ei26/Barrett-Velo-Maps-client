@@ -49,7 +49,6 @@ export const saveRoute = (route) => dispatch => {
 	})
 		.then((res) => dispatch(fetchRoutes()))
 		.catch(err => {
-			console.log('made it to catch');
 				const {reason, message, location} = err;
 				if (reason === 'ValidationError') {
 						// Convert ValidationErrors into SubmissionErrors for Redux Form

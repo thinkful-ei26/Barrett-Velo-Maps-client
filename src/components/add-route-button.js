@@ -5,9 +5,9 @@ import { creatingRoute } from '../actions/post-routes';
 class AddRouteButton extends React.Component {
 
 	render() {
-		if (this.props.creatingRoute) {
-			return null;
-		}
+		// if (this.props.creatingRoute) {
+		// 	return null;
+		// }
 
 		return (
 			<button onClick={() => this.props.dispatch(creatingRoute())}>
