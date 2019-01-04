@@ -1,12 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import '../styles/route-description.css';
 
 function RouteDecription(props) {
     return(
-        <div>
+        <section className="route-description-section">
             <h3>{props.route.name}</h3>
-            <p>{props.route.description}</p>
-        </div>
+            <p className="route-description-par">{props.route.description}</p>
+        </section>
     )
 }
 

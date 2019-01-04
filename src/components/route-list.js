@@ -25,7 +25,7 @@ class RouteList extends React.Component {
 		);
 		return (
 			<section>
-				<h4>Saved Routes</h4>
+				<h2>Saved Routes</h2>
 				<ul className="route-list">
 				{list}
 			</ul>

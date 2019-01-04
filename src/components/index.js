@@ -9,13 +9,13 @@ import LandingPage from './landing-page';
 
 export default function App(props) {
   return(
-  	<main role="main">
+  	<main>
 			<div className="header">
-				<header role="banner">Velo Maps</header>
+				<h1>Velo Maps</h1>
 			</div>
 		
 
-			<div className="flex-container">
+			<div className="flex-container" role="presentation" aria-label="google map with highlited bike routes">
 				<MyBikeMapComponent 
 					googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyDM_ehj1epOAaYbWLgIG2vWT4ErYl-2PJg&v=3.exp&libraries=geometry,drawing,places"
 					loadingElement={<div style={{ height: `100%` }} />}
@@ -24,13 +24,13 @@ export default function App(props) {
 				/>
 
 				<div className="saved-routes-container">
-					<section className="route-list">
+					<div className="route-list">
 						<RouteList />
-					</section>
+					</div>
 
-					<section className="route-description">
+					<div className="route-description">
 						<RouteDecription />
-					</section>
+					</div>
 				</div>
 			</div>
 
