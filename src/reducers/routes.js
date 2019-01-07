@@ -5,6 +5,7 @@ import {
 	SET_CURRENT_ROUTE 
 } from '../actions/get-routes';
 import { SAVE_NEW_ROUTE_PATH, CREATING_ROUTE, DONE_CREATING_ROUTE } from '../actions/post-routes';
+import { SET_CURRENT_CENTER } from '../actions/set-currentCenter';
 
 // const initialState = {
 //   route: {
@@ -22,7 +23,8 @@ const initialState = {
 		description: '',
 	  path: []
 	},
-	currentRoute: {},
+  currentRoute: {},
+  currentCenter: { lat: 39.753998, lng: -105.001054 }, // Default set to Denver. Use to focus center on currentRoute
   loading: false,
   error: null,
   creatingRoute: false
@@ -46,12 +48,19 @@ export function getRouteReducer(state=initialState, action) {
           error: action.error
         })
 		}
-		
+    
+    // these 2 may need their own reducer later --- TODO ---
 		if (action.type === SET_CURRENT_ROUTE) {
 			return Object.assign({}, state, {
 				currentRoute: action.route
 			})
-		}
+    }
+    
+    if (action.type === SET_CURRENT_CENTER) {
+			return Object.assign({}, state, {
+				currentCenter: action.crds
+			})
+    }
 		
   return state;
 }
