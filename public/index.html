@@ -25,6 +25,32 @@
     <title>React App</title>
   </head>
   <body>
+      <style> /*----------------------------------------------------------Mobile-FIRST-RWD--*/
+          @media only screen and (max-width: 350px) { /*mobile styles*/
+             .saved-routes-container {
+                background-color: blue;
+                display: block;
+             }
+             #mapBox {
+              display: block;
+             }
+          }
+          @media only screen and (min-width: 350px) { /*mobile styles*/
+             .saved-routes-container {
+                background-color: green
+             }
+          }
+          @media only screen and (min-width: 650px) { /*tablet styles*/
+             .saved-routes-container {
+                background-color: orange
+             }
+          }
+          @media only screen and (min-width: 800px) { /*desktop styles*/
+             .saved-routes-container {
+                background-color: red
+             }
+          }
+      </style>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--

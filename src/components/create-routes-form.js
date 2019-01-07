@@ -36,9 +36,7 @@ class NewRouteForm extends React.Component {
 				}
 				
     return (
-      // form goes here, still need validators and error messages, and a fetch(post)
       <form
-				// onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
 				onSubmit={this.props.handleSubmit(values => {
 					this.onSubmit(values)
 					this.props.dispatch(doneCreatingRoute())

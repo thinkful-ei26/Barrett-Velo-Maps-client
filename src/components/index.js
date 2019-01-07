@@ -6,16 +6,20 @@ import RouteDecription from './route-desc';
 import RouteList from './route-list';
 import AddRouteButton from './add-route-button';
 import LandingPage from './landing-page';
-
+// use article or aside
 export default function App(props) {
   return(
   	<main>
-			<div className="header">
-				<h1>Velo Maps</h1>
-			</div>
-		
 
-			<div className="flex-container" role="presentation" aria-label="google map with highlited bike routes">
+			<header className="header">
+				<h1>Velo Maps</h1>
+			</header>
+		
+			<div className="landing-page-container">
+				<LandingPage />
+			</div>
+
+			<div id="mapBox" className="flex-container" role="presentation" aria-label="google map with highlited bike routes">
 				<MyBikeMapComponent 
 					googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyDM_ehj1epOAaYbWLgIG2vWT4ErYl-2PJg&v=3.exp&libraries=geometry,drawing,places"
 					loadingElement={<div style={{ height: `100%` }} />}
@@ -32,14 +36,6 @@ export default function App(props) {
 						<RouteDecription />
 					</div>
 				</div>
-			</div>
-
-			{/* <div className="add-route-button">
-				<AddRouteButton />
-			</div> */}
-
-			<div className="landing-page-container">
-			<LandingPage />
 			</div>
 			
     </main>        

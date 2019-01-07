@@ -12,10 +12,11 @@
   display: flex;
   width: 100%;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .saved-routes-container {
-  margin-left: 75px;
+  margin: 75px;
 }
 
 .landing-page-container {
@@ -24,3 +25,9 @@
   justify-content: center;
   width: 100%;
 }
+
+/* padding: 10px;
+border: 2px steelblue solid;
+border-radius: 13px;
+background-color: #ccc;
+margin-right: 15px; */
