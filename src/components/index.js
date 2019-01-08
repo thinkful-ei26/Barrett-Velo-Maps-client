@@ -19,24 +19,29 @@ export default function App(props) {
 				<LandingPage />
 			</div>
 
-			<div id="mapBox" className="flex-container" role="presentation" aria-label="google map with highlited bike routes">
-				<MyBikeMapComponent 
-					googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyDM_ehj1epOAaYbWLgIG2vWT4ErYl-2PJg&v=3.exp&libraries=geometry,drawing,places"
-					loadingElement={<div style={{ height: `100%` }} />}
-					containerElement={<div style={{ height: `400px`, width: `70%` }} />}
-					mapElement={<div style={{ height: `100%` }} />}
-				/>
+			<div className="mapBox" role="presentation" aria-label="google map with highlited bike routes">
+					<MyBikeMapComponent 
+						googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyDM_ehj1epOAaYbWLgIG2vWT4ErYl-2PJg&v=3.exp&libraries=geometry,drawing,places"
+						loadingElement={<div style={{ height: `100%` }} />}
+						containerElement={<div style={{ height: `400px`, width: `100%` }} />}
+						mapElement={<div style={{ height: `100%` }} />}
+					/>
+			</div>
 
-				<div className="saved-routes-container">
-					<div className="route-list">
-						<RouteList />
-					</div>
+			<div className="addRoute">
+				<AddRouteButton />
+			</div>
 
-					<div className="route-description">
+			<div className="saved-routes-container">
+				<div className="route-description">
 						<RouteDecription />
-					</div>
+				</div>
+
+				<div className="route-list">
+						<RouteList />
 				</div>
 			</div>
+			
 			
     </main>        
     )

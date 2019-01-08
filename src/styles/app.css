@@ -1,22 +1,7 @@
-/* main {
-  display: flex;
-} */
-
 .header {
   display: flex;
   justify-content: center;
   margin: 20px;
-}
-
-.flex-container {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.saved-routes-container {
-  margin: 75px;
 }
 
 .landing-page-container {
@@ -24,6 +9,27 @@
   display: flex;
   justify-content: center;
   width: 100%;
+}
+
+.mapBox {
+  width: 90%;
+  margin: auto;
+}
+
+.addRoute {
+  margin-top: 2px;
+  margin-left: 5%;
+}
+
+.saved-routes-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 100px;
+  margin-right: 5%;
+  margin-left: 5%;
+  width: 85%;
+  padding: 5px;
 }
 
 /* padding: 10px;

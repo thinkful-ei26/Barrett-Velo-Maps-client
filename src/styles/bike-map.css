@@ -1,0 +1,8 @@
+.map-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.clear-map-button {
+  margin-top: 4px;
+}
