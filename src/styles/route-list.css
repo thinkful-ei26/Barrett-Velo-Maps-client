@@ -1,5 +1,9 @@
-.route-description-section {
+.route-list-section {
   padding: 4px;
   border-radius: 13px;
   background-color: rgb(219, 228, 215);
+}
+
+.list-header {
+  margin: auto;
 }

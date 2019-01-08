@@ -12,7 +12,7 @@ export default function App(props) {
   	<main>
 
 			<header className="header">
-				<h1>Velo Maps</h1>
+				<h1 className="header-text">Velo Maps</h1>
 			</header>
 		
 			<div className="landing-page-container">
@@ -28,7 +28,7 @@ export default function App(props) {
 					/>
 			</div>
 
-			<div className="addRoute">
+			<div className="addRouteButton">
 				<AddRouteButton />
 			</div>
 

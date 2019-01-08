@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { reduxForm, Field, focus } from 'redux-form';
+import '../styles/create-route-form.css';
 import { required, nonEmpty } from '../validators';
 import Input from './input-field';
 import { saveRoute, doneCreatingRoute } from '../actions/post-routes';
@@ -37,6 +38,7 @@ class NewRouteForm extends React.Component {
 				
     return (
       <form
+				className="addRouteForm"
 				onSubmit={this.props.handleSubmit(values => {
 					this.onSubmit(values)
 					this.props.dispatch(doneCreatingRoute())
@@ -48,27 +50,35 @@ class NewRouteForm extends React.Component {
 					name="name"
 					type="text"
 					component={Input}
-					label="Route Name"
+					label="Route Name:"
 					validate={[required, nonEmpty]}
 				/>
+				<div className="description">
+					<label htmlFor="description">Route Description:</label>
+				
+					<Field 
+						component="textarea"
+						name="description"
+						type="text"
+						label="Route Description"
+					/>
+				</div>
 
-				<Field 
-					component={Input}
-					name="description"
-					type="text"
-					label="Route Description"
-				/>
+				<div>
+					<button
+						className="saveButton"
+						type="submit"
+						disabled={this.props.pristine || this.props.submitting || !this.props.path.length}>
+						Save Route
+					</button>
 
-				<button
-					// onClick={() => this.props.dispatch(doneCreatingRoute())}
-          type="submit"
-          disabled={this.props.pristine || this.props.submitting || !this.props.path.length}>
-          Save Route
-        </button>
-
-				<span><button onClick={() => this.props.dispatch(doneCreatingRoute())}>
-					Cancel
-				</button></span>
+					<span><button 
+						className="cancelButton"
+						onClick={() => this.props.dispatch(doneCreatingRoute())}>
+						Cancel
+					</button></span>
+				</div>
+				
 
       </form>
     )

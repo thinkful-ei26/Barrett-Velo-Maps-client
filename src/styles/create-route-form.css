@@ -1,0 +1,70 @@
+.addRouteForm {
+  background: rgb(219, 228, 215);
+  width: 35%;
+  border-radius: 8px;
+  display: block;
+}
+
+.addRouteForm > textarea {
+  border-radius: 8px;
+}
+
+.description {
+  padding: 6px;
+  display: flex;  
+  flex-direction: column;
+}
+
+.form-input {
+  padding: 6px;
+}
+
+.form-input > label {
+  padding-right: 10px;
+}
+
+.form-input > input {
+  border-radius: 8px;
+}
+
+.saveButton {
+  margin: 5px;
+  box-shadow:inset 0px 1px 0px 0px #a4e271;
+	background-color:#30c403;
+  border-radius:6px;
+	border:1px solid #74b807;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2b8009;
+}
+
+.saveButton:hover {
+	background-color:#3ba809;
+}
+
+.cancelButton {
+  box-shadow:inset 0px 1px 0px 0px #f07935;
+	background-color:#e25605;
+  border-radius:6px;
+	border:1px solid #e25605;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #df5c11;
+}
+
+.cancelButton:hover {
+	background-color:#c54c06;
+}
+

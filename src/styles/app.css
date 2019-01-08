@@ -1,7 +1,18 @@
+main {
+  background: rgb(244, 252, 239);
+  color: rgb(35, 39, 34);
+}
+
 .header {
   display: flex;
   justify-content: center;
-  margin: 20px;
+  margin: auto;
+  background: rgb(12, 133, 12);
+  width: 50%;
+}
+
+.header-text {
+  color:rgb(35, 39, 34);
 }
 
 .landing-page-container {
@@ -16,7 +27,7 @@
   margin: auto;
 }
 
-.addRoute {
+.addRouteButton {
   margin-top: 2px;
   margin-left: 5%;
 }
@@ -25,12 +36,13 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin-top: 100px;
+  margin-top: 10px;
   margin-right: 5%;
   margin-left: 5%;
   width: 85%;
   padding: 5px;
 }
+
 
 /* padding: 10px;
 border: 2px steelblue solid;

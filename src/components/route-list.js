@@ -1,16 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import '../styles/route-list.css';
 import { fetchRoutes, setCurrentRoute } from '../actions/get-routes';
 
 class RouteList extends React.Component {
 	componentDidMount() {
 		this.props.dispatch(fetchRoutes());
 	}
-
-	// this updated the list after new route post, but its constantly making get requests...
-	// componentDidUpdate() {
-	// 	this.props.dispatch(fetchRoutes());
-	// }
 
 	render() {
 		const list = this.props.routes.map((route, index) => {
@@ -24,8 +20,8 @@ class RouteList extends React.Component {
 		
 		);
 		return (
-			<section>
-				<h2>Saved Routes</h2>
+			<section className="route-list-section">
+				<h2 className="list-header">Saved Routes</h2>
 				<ul className="route-list">
 				{list}
 			</ul>
