@@ -1,16 +1,31 @@
 /* global google */ 
+// Libraries
 import React from 'react';
 import { connect } from 'react-redux';
 import Spinner from 'react-spinkit';
 import { withGoogleMap, GoogleMap, withScriptjs, BicyclingLayer, Marker, Polyline  } from 'react-google-maps';
 import DrawingManager from "react-google-maps/lib/components/drawing/DrawingManager";
-import '../styles/bike-map.css';
+// Actions
 import { saveNewRoutePath } from '../actions/post-routes';
+import { setCurrentCenter } from '../actions/set-currentCenter';
+// Components
+
+// styles
+import '../styles/bike-map.css';
+
 
 
 
 class MyBikeMapComponent extends React.Component {
+	componentDidMount() {
+		this.getCenter();
+	}
 
+	componentDidUpdate() {
+		if (this.props.currentRoutePath) {
+			this.focusOnRoute();
+		}
+	}
 	// renderRouteLoadOrError() {
 	// 	if (this.props.loading) {
 	// 		return <Spinner spinnername="circle" fadeIn="none" />;
@@ -36,6 +51,38 @@ class MyBikeMapComponent extends React.Component {
 		this.currentPolyline.setMap(null);
 	}
 
+	// Uses navigator.geolocation to get users location and set that as the maps center
+	getCenter() {
+		let center;
+		const getPosition = function(options) {
+
+			if (navigator.geolocation) {
+				return new Promise(function (resolve, reject) {
+					navigator.geolocation.getCurrentPosition(resolve, reject, options);
+				});
+			} else {
+				this.props.dispatch(setCurrentCenter({ lat: 39.753998, lng: -105.001054 }));
+			}
+		}
+		
+		getPosition()
+			.then((position) => {
+
+				center = {
+					lat: parseFloat(position.coords.latitude),
+					lng: parseFloat(position.coords.longitude)
+				}
+				this.props.dispatch(setCurrentCenter(center));
+			})
+			.catch((err) => {
+				console.error(err.message);
+			});
+	}
+
+	focusOnRoute() {
+		this.props.dispatch(setCurrentCenter(this.props.currentRoutePath[0]));
+	}
+
 	render() {
 		// ---- TODO ---- refactor conditional rendering to functions later 
 		// clear map if Polyline Component is rendered
@@ -44,9 +91,9 @@ class MyBikeMapComponent extends React.Component {
 				<div className="map-container">
 					<section >
 						<GoogleMap
-						ref={(map) => this._map = map} // allows access to google.maps.Map
-						defaultZoom={13}
-						defaultCenter={{ lat: 39.753998, lng: -105.001054 }} // set to Denver, later set up geolocation as bonus
+							ref={(map) => this._map = map} // allows access to google.maps.Map
+							defaultZoom={13}
+							center={this.props.currentCenter} // should set center to user location with geo-location
 						>
 
 							<BicyclingLayer autoUpdate />	
@@ -106,7 +153,7 @@ class MyBikeMapComponent extends React.Component {
 						<GoogleMap
 							ref={(map) => this._map = map} // allows access to google.maps.Map
 							defaultZoom={13}
-							defaultCenter={{ lat: 39.753998, lng: -105.001054 }} // set to Denver, later set up geolocation as bonus
+							center={this.props.currentCenter} // should set center to user location with geo-location
 						>
 
 							<BicyclingLayer autoUpdate />
@@ -225,11 +272,14 @@ class MyBikeMapComponent extends React.Component {
 
 const mapStateToProps = state => {
 	return {
+		// getRouter
 		routes: state.get.routes,
 		loading: state.get.loading,
 		error: state.get.error,
 		currentRoutePath: state.get.currentRoute.path,
-		creatingRoute: state.post.creatingRoute
+		currentCenter: state.get.currentCenter,
+		// postRouter
+		creatingRoute: state.post.creatingRoute,
 	}
 }
 
