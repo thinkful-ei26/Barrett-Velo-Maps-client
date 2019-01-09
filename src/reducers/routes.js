@@ -9,22 +9,25 @@ import { SAVE_NEW_ROUTE_PATH, CREATING_ROUTE, DONE_CREATING_ROUTE } from '../act
 import { SET_CURRENT_CENTER } from '../actions/set-currentCenter';
 import { SHOW_HELP, HIDE_HELP } from '../actions/landing-page';
 
-const initialState = {
+const initialRouteState = {
 	routes: [],
+  currentRoute: {},
+  currentCenter: { lat: 39.753998, lng: -105.001054 }, // Default set to Denver. Use to focus center on currentRoute
+  loading: false,
+  error: null,
+  showHelp: true, // true: render landing page, false: hide landing page, render help button
+}
+
+const initialPostState = {
 	newRoute: {
 		name: '',
 		description: '',
 	  path: []
 	},
-  currentRoute: {},
-  currentCenter: { lat: 39.753998, lng: -105.001054 }, // Default set to Denver. Use to focus center on currentRoute
-  loading: false,
-  error: null,
   creatingRoute: false,
-  showHelp: true, // true: render landing page, false: hide landing page, render help button
 }
 
-export function getRouteReducer(state=initialState, action) {
+export function getRouteReducer(state=initialRouteState, action) {
   if (action.type === FETCH_ROUTES_REQUEST) {
     // return {...state, loading: true}  --- shorthand. using Object.assign is easier to read
     return Object.assign({}, state, {
@@ -73,11 +76,17 @@ export function getRouteReducer(state=initialState, action) {
         currentRoute: {}
       })
     }
+
+    if (action.type === CREATING_ROUTE) {
+      return Object.assign({}, state, {
+        currentRoute: {}
+      })
+    }
 		
   return state;
 }
 
-export function postRouteReducer(state=initialState, action) {
+export function postRouteReducer(state=initialPostState, action) {
 
   if (action.type === SAVE_NEW_ROUTE_PATH) {
   	return Object.assign({}, state, {

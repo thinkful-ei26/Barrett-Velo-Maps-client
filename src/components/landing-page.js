@@ -67,7 +67,7 @@ function LandingPage(props) {
 
   if (!props.showHelp) {
     return (
-      <button 
+      <button  
         className="help-button"
         onClick={() => props.dispatch(showHelp())}
       >Help</button>

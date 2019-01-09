@@ -67,3 +67,20 @@
 	text-decoration:none;
 	text-shadow:0px 1px 0px #2b8009;
 }
+
+@media only screen and (max-width: 350px) { /*mobile styles*/
+
+}
+@media only screen and (min-width: 350px) { /*mobile styles*/
+
+}
+@media only screen and (min-width: 650px) { /*tablet styles*/
+  
+}
+@media only screen and (min-width: 800px) { /*desktop styles*/
+  .help-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
