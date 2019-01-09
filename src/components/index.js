@@ -40,7 +40,10 @@ export default function App(props) {
 				</div>
 			</div>
 			
-			
+			<footer role="contentinfo">Created by: Barrett Carpenter, 2019, 
+    		<span className="email">email: <a href="mailto:carpenterbarrett@gmail.com">carpenterbarrett@gmail.com</a>,</span> 
+   		  <span className="twitter">twitter: <a href="https://twitter.com/BarrettCarpent1">@BarrettCarpent1</a></span>
+  		</footer>
     </main>        
     )
 }

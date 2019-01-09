@@ -9,7 +9,7 @@ function RouteDecription(props) {
   }
   return( 
        <section className="route-description-section">
-          <h3>{props.route.name}</h3>
+          <h2>{props.route.name}</h2>
           <p className="route-description-par">{props.route.description}</p>
           <button 
             onClick={() => props.dispatch(clearCurrentRoute())}   

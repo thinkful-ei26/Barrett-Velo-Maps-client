@@ -2,7 +2,6 @@
 // Libraries
 import React from 'react';
 import { connect } from 'react-redux';
-import Spinner from 'react-spinkit';
 import { withGoogleMap, GoogleMap, withScriptjs, BicyclingLayer, Marker, Polyline  } from 'react-google-maps';
 import DrawingManager from "react-google-maps/lib/components/drawing/DrawingManager";
 // Actions
@@ -26,16 +25,7 @@ class MyBikeMapComponent extends React.Component {
 			this.focusOnRoute();
 		}
 	}
-	// renderRouteLoadOrError() {
-	// 	if (this.props.loading) {
-	// 		return <Spinner spinnername="circle" fadeIn="none" />;
-	// 	}
 
-	// 	if (this.props.error) {
-	// 			return <strong>{this.props.error}</strong>;
-	// 	}
-	// 	console.log(this.props.route);
-	// }
 	currentPolyline;
 	onPolylineComplete = poly => {
 		this.currentPolyline = poly;
