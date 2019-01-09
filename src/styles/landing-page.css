@@ -1,3 +1,70 @@
 .how-to-container {
   width: 50%;
+  background-color: rgb(219, 228, 215);
+  padding: 10px;
+  margin-bottom: 5px;
+  margin-top: 25px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.map-key-header {
+  margin-bottom: 5px;
+}
+
+.draw-header {
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.save-header {
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.map-key > li {
+  padding-bottom: 3px;
+}
+
+.draw-info > li {
+  padding-bottom: 3px;
+}
+
+.save-info > li {
+  padding-bottom: 3px;
+}
+
+.how-to-close-button {
+  box-shadow:inset 0px 1px 0px 0px #f07935;
+	background-color:#e25605;
+  border-radius:6px;
+	border:1px solid #e25605;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #df5c11;
+}
+
+.help-button {
+  /* position: fixed; */
+  margin: 5px;
+  box-shadow:inset 0px 1px 0px 0px #a4e271;
+	background-color:#30c403;
+  border-radius:6px;
+	border:1px solid #74b807;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2b8009;
 }

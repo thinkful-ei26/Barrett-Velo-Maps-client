@@ -15,9 +15,7 @@ export default function App(props) {
 				<h1 className="header-text">Velo Maps</h1>
 			</header>
 		
-			<div className="landing-page-container">
-				<LandingPage />
-			</div>
+			<LandingPage />
 
 			<div className="mapBox" role="presentation" aria-label="google map with highlited bike routes">
 					<MyBikeMapComponent 

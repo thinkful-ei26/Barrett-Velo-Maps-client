@@ -6,16 +6,8 @@ import {
 } from '../actions/get-routes';
 import { SAVE_NEW_ROUTE_PATH, CREATING_ROUTE, DONE_CREATING_ROUTE } from '../actions/post-routes';
 import { SET_CURRENT_CENTER } from '../actions/set-currentCenter';
+import { SHOW_HELP, HIDE_HELP } from '../actions/landing-page';
 
-// const initialState = {
-//   route: {
-//     name: '',
-//     description: '',
-//     path: []
-//   },
-//   loading: false,
-//   error: null
-// }
 const initialState = {
 	routes: [],
 	newRoute: {
@@ -27,7 +19,8 @@ const initialState = {
   currentCenter: { lat: 39.753998, lng: -105.001054 }, // Default set to Denver. Use to focus center on currentRoute
   loading: false,
   error: null,
-  creatingRoute: false
+  creatingRoute: false,
+  showHelp: true, // true: render landing page, false: hide landing page, render help button
 }
 
 export function getRouteReducer(state=initialState, action) {
@@ -60,6 +53,18 @@ export function getRouteReducer(state=initialState, action) {
 			return Object.assign({}, state, {
 				currentCenter: action.crds
 			})
+    }
+
+    if (action.type === SHOW_HELP) {
+      return Object.assign({}, state, {
+        showHelp: true
+      })
+    }
+
+    if (action.type === HIDE_HELP) {
+      return Object.assign({}, state, {
+        showHelp: false
+      })
     }
 		
   return state;
