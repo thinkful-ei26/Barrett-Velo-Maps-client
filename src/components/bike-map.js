@@ -169,6 +169,10 @@ class MyBikeMapComponent extends React.Component {
 								}}   
 								path={this.props.currentRoutePath}
 							/>
+
+							<Marker position={this.props.currentRoutePath[0]}/>
+
+							<Marker position={this.props.currentRoutePath[this.props.currentRoutePath.length - 1]}/>
 		
 							<DrawingManager 
 								onPolylineComplete={(e) => {
