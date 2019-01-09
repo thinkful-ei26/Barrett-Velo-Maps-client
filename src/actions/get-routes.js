@@ -35,3 +35,8 @@ export const setCurrentRoute = route => ({
     type: SET_CURRENT_ROUTE,
     route
 });
+
+export const CLEAR_CURRENT_ROUTE = 'CLEAR_CURRENT_ROUTE';
+export const clearCurrentRoute = () => ({
+    type: CLEAR_CURRENT_ROUTE
+});

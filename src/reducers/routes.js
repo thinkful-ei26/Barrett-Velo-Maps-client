@@ -2,7 +2,8 @@ import {
 	FETCH_ROUTES_REQUEST, 
 	FETCH_ROUTES_SUCCESS, 
 	FETCH_ROUTES_ERROR,
-	SET_CURRENT_ROUTE 
+  SET_CURRENT_ROUTE,
+  CLEAR_CURRENT_ROUTE 
 } from '../actions/get-routes';
 import { SAVE_NEW_ROUTE_PATH, CREATING_ROUTE, DONE_CREATING_ROUTE } from '../actions/post-routes';
 import { SET_CURRENT_CENTER } from '../actions/set-currentCenter';
@@ -64,6 +65,12 @@ export function getRouteReducer(state=initialState, action) {
     if (action.type === HIDE_HELP) {
       return Object.assign({}, state, {
         showHelp: false
+      })
+    }
+
+    if (action.type === CLEAR_CURRENT_ROUTE) {
+      return Object.assign({}, state, {
+        currentRoute: {}
       })
     }
 		

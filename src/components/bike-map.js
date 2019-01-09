@@ -86,7 +86,7 @@ class MyBikeMapComponent extends React.Component {
 	render() {
 		// ---- TODO ---- refactor conditional rendering to functions later 
 		// clear map if Polyline Component is rendered
-		if (this.props.creatingRoute) {
+		if (this.props.creatingRoute || !this.props.currentRoutePath) {
 			return (
 				<div className="map-container">
 					<section >
@@ -211,62 +211,6 @@ class MyBikeMapComponent extends React.Component {
 				
 			)
 		}
-		// may be pointless, creating route is either true or false
-		return (
-			<section className="map-container">
-				<GoogleMap
-					ref={(map) => this._map = map} // allows access to google.maps.Map
-					defaultZoom={13}
-					defaultCenter={{ lat: 39.753998, lng: -105.001054 }} // set to Denver, later set up geolocation as bonus
-				>
-					<BicyclingLayer autoUpdate />
-
-					<Polyline 
-						defaultOptions={{
-							strokeColor: `#0000ff`,
-							strokeOpacity: 1,
-							strokeWeight: 5,
-							clickable: true,
-							editable: false, // set up condition to set this to true when user editing route -- extension feature
-							zIndex: 1,
-						}}   
-						path={this.props.currentRoutePath}
-					/>
-
-					<DrawingManager 
-						onPolylineComplete={(e) => {
-							this.onPolylineComplete(e);
-						}}
-						defaultDrawingMode={google.maps.drawing.OverlayType.POLYLINE}
-						defaultOptions={{
-							drawingControl: true,
-							drawingControlOptions: {
-								position: google.maps.ControlPosition.TOP_CENTER,
-								drawingModes: [
-									google.maps.drawing.OverlayType.POLYLINE,
-									google.maps.drawing.OverlayType.MARKER
-								],
-							},
-							polylineOptions: {
-								strokeColor: `#0000ff`,
-								strokeOpacity: 1,
-								strokeWeight: 5,
-								clickable: true,
-								editable: true,
-								zIndex: 1,
-							},
-						}}
-					/>
-
-				</GoogleMap>
-
-				{/* <div>
-					{this.renderRouteLoadOrError()}
-				</div> */}
-				
-
-			</section>
-		)
 	}
 }
 
