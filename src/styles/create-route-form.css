@@ -68,3 +68,10 @@
 	background-color:#c54c06;
 }
 
+@media only screen and (max-width: 350px) { /*mobile styles*/
+	.form-input > input {
+		border-radius: 8px;
+		width: 90%;
+	}
+}
+

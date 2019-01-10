@@ -39,7 +39,7 @@ function LandingPage(props) {
   
             <li>
               To draw a line, click anywhere on the map to start the line, and click again to finish that section of the line.
-              Click a 3rd time to stop drawing.
+              Click a second time on your last point to stop drawing.
             </li>
           </ul>
   

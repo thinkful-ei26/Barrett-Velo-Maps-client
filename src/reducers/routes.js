@@ -109,6 +109,12 @@ export function postRouteReducer(state=initialPostState, action) {
       creatingRoute: false
     })
   }
+
+  if (action.type === SET_CURRENT_ROUTE) {
+    return Object.assign({}, state, {
+      creatingRoute: false
+    })
+  }
   
   return state;
 }
