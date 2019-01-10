@@ -8,12 +8,26 @@ class RouteList extends React.Component {
 		this.props.dispatch(fetchRoutes());
 	}
 
+	handleKeyDown(event) {
+		
+	}
+
 	render() {
 		const list = this.props.routes.map((route, index) => {
 			if (route.name) {
-				return <li onClick={() => this.props.dispatch(setCurrentRoute(route))} key={index}>
-					{route.name}
-				</li>
+				return (
+					<li 
+						role="button" 
+						tabIndex="0"
+						onClick={() => this.props.dispatch(setCurrentRoute(route))} key={index}
+						onKeyDown={(event) => {
+							if(event.key === 'Enter' || 'Space') {
+							this.props.dispatch(setCurrentRoute(route))
+						}}}	
+					>
+						{route.name}
+					</li>
+				)
 			}
 			return null;
 		}
