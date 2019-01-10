@@ -10,6 +10,8 @@ main {
   margin-bottom: 10px;
   background: rgb(12, 133, 12);
   width: 50%;
+  border-radius: 15px;
+  margin-top: 5px;
 }
 
 .header-text {

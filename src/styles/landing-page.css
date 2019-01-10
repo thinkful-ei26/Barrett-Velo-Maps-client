@@ -1,8 +1,9 @@
 .how-to-container {
+  border-radius: 15px;
   width: 50%;
   background-color: rgb(219, 228, 215);
   padding: 10px;
-  margin-bottom: 5px;
+  margin-bottom: 25px;
   margin-top: 25px;
   display: block;
   margin-left: auto;
