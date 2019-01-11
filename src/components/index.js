@@ -42,7 +42,8 @@ export default function App(props) {
 			
 			<footer role="contentinfo">Created by: Barrett Carpenter, 2019, 
     		<span className="email">email: <a href="mailto:carpenterbarrett@gmail.com">carpenterbarrett@gmail.com</a>,</span> 
-   		  <span className="twitter">twitter: <a href="https://twitter.com/BarrettCarpent1">@BarrettCarpent1</a></span>
+   		  <span className="twitter">twitter: <a href="linkto:https://twitter.com/BarrettCarpent1">@BarrettCarpent1,</a></span>
+				<span className="code"><a href="linkto:https://github.com/thinkful-ei26/Barrett-Velo-Maps-client">Code</a></span>
   		</footer>
     </main>        
     )
