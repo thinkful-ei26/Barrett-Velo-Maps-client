@@ -11,13 +11,13 @@ bike routes to destinations around Denver. I found the Google Maps API with thei
 ### Screenshots:
 
 - Default view:
-![alt text]([Imgur](https://i.imgur.com/Xz8SI8A.png))
+![alt text](https://i.imgur.com/Xz8SI8A.png)
 - Help window:
-![alt text][Imgur](https://i.imgur.com/NAGgrL7.png)
+![alt text](https://i.imgur.com/NAGgrL7.png)
 - Creating a route:
 ![alt text](https://i.imgur.com/NIei5JJ.png)
 - Viewing a saved route:
-- [alt text](https://i.imgur.com/Xz8SI8A.png)
+- ![alt text](https://i.imgur.com/Xz8SI8A.png)
 
 ### Tech stack:
 
