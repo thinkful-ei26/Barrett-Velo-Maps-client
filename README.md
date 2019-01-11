@@ -12,39 +12,39 @@ bike routes to destinations around Denver. I found the Google Maps API with thei
 
 ### Tech stack:
 
-Frontend: React
-State Management: Redux
-Server: Node with Express
+Frontend: React<br>
+State Management: Redux<br>
+Server: Node with Express<br>
 Database: Mongo
 
 Dependencies:
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0",
-    "react-google-maps": "^9.4.5",
-    "react-redux": "^6.0.0",
-    "react-scripts": "^2.1.2",
-    "react-spinkit": "^3.0.0",
-    "redux": "^4.0.1",
-    "redux-form": "^8.1.0",
-    "redux-thunk": "^2.3.0"
+    "react": "^16.7.0",<br>
+    "react-dom": "^16.7.0",<br>
+    "react-google-maps": "^9.4.5",<br>
+    "react-redux": "^6.0.0",<br>
+    "react-scripts": "^2.1.2",<br>
+    "react-spinkit": "^3.0.0",<br>
+    "redux": "^4.0.1",<br>
+    "redux-form": "^8.1.0",<br>
+    "redux-thunk": "^2.3.0"<br>
 
 ### Organization of code base:
-Everything lives in the src folder.
--src
-  -actions (holds all redux action files)
-  -components (holds all react components)
-    -index.js (holds root App component)
-    -bike-map.js (component for the google map, handles map          rendering and manipulations)
-    -add-route-button.js (handles rendering for create-routes-form.js components)
-  -reducers (holds redux reducers)
-  -styles (holds all css style sheets for react components)
-  config.js (holds config vars)
-  index.js (calls ReactDOM.render, renders root App component and Provider)
-  store.js (creates redux store)
-  validators.js (holds redux-form validators)
+Everything lives in the src folder.<br>
+-src<br>
+  -actions (holds all redux action files)<br>
+  -components (holds all react components)<br>
+    -index.js (holds root App component)<br>
+    -bike-map.js (component for the google map, handles map         rendering and manipulations)<br>
+    -add-route-button.js (handles rendering for create-routes-form.js components)<br>
+  -reducers (holds redux reducers)<br>
+  -styles (holds all css style sheets for react components)<br>
+  config.js (holds config vars)<br>
+  index.js (calls ReactDOM.render, renders root App component and Provider)<br>
+  store.js (creates redux store)<br>
+  validators.js (holds redux-form validators)<br>
 
 
-  
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
