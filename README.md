@@ -17,7 +17,7 @@ State Management: Redux<br>
 Server: Node with Express<br>
 Database: Mongo
 
-Dependencies:
+Dependencies:<br>
     "react": "^16.7.0",<br>
     "react-dom": "^16.7.0",<br>
     "react-google-maps": "^9.4.5",<br>
