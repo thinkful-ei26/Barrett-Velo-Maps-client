@@ -17,28 +17,28 @@ export default function App(props) {
 		
 			<LandingPage />
 
-			<div className="mapBox" role="presentation" aria-label="google map with highlited bike routes">
+			<section className="mapBox" role="presentation" aria-label="google map with highlited bike routes">
 					<MyBikeMapComponent 
 						googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyDM_ehj1epOAaYbWLgIG2vWT4ErYl-2PJg&v=3.exp&libraries=geometry,drawing,places"
 						loadingElement={<div style={{ height: `100%` }} />}
 						containerElement={<div style={{ height: `400px`, width: `100%` }} />}
 						mapElement={<div style={{ height: `100%`, borderRadius: '15px' }} />}
 					/>
-			</div>
+			</section>
 
-			<div className="addRouteButton">
+			<section className="addRouteButton">
 				<AddRouteButton />
-			</div>
+			</section>
 
-			<div className="saved-routes-container">
-				<div className="route-description">
+			<section className="saved-routes-container">
+				<section className="route-description">
 						<RouteDecription />
-				</div>
+				</section>
 
-				<div className="route-list">
+				<section className="route-list">
 						<RouteList />
-				</div>
-			</div>
+				</section>
+			</section>
 			
 			<footer role="contentinfo">Created by: Barrett Carpenter, 2019, 
     		<span className="email">email: <a href="mailto:carpenterbarrett@gmail.com">carpenterbarrett@gmail.com</a>,</span> 

@@ -9,6 +9,7 @@ import { SAVE_NEW_ROUTE_PATH, CREATING_ROUTE, DONE_CREATING_ROUTE } from '../act
 import { SET_CURRENT_CENTER } from '../actions/set-currentCenter';
 import { SHOW_HELP, HIDE_HELP } from '../actions/landing-page';
 
+// default state for GET and routes being rendered
 const initialRouteState = {
 	routes: [],
   currentRoute: {},
@@ -18,6 +19,7 @@ const initialRouteState = {
   showHelp: true, // true: render landing page, false: hide landing page, render help button
 }
 
+// default state for POST
 const initialPostState = {
 	newRoute: {
 		name: '',
