@@ -1,8 +1,8 @@
 .addButton {
-  box-shadow:inset 0px 1px 0px 0px #679740;
-	background-color:#30c403;
+  box-shadow:inset 0px 1px 0px 0px #b5db96;
+	background-color:#49aa2b;
   border-radius:6px;
-	border:1px solid #74b807;
+	border:1px solid #7ca33e;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
@@ -15,5 +15,5 @@
 }
 
 .addButton:hover {
-	background-color:#3ba809;
+	background-color:#459b1d;
 }
