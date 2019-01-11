@@ -1,15 +1,16 @@
-Welcome to Velo-Maps!
+## Welcome to Velo-Maps!
 
 Using Google Maps Javascript API and google-react-maps npm library, Velo-maps is a an interactive route planning app. Currently the focus is on bike routes, but could be shifted to focus on something else like hiking routes or rock climbing spots. 
 
 I got the idea for this app when I was struggling to find tools to help me plan safe 
 bike routes to destinations around Denver. I found the Google Maps API with their bicycle layer and thought it would be perfect for an app that allows users to plan safe urban bike rides, especially for bike commuters, or cyclists in an unfamilier town.
 
-Link to deployed app: [https://velo-maps.herokuapp.com/](https://velo-maps.herokuapp.com/)
+### Link to deployed app: 
+[https://velo-maps.herokuapp.com/](https://velo-maps.herokuapp.com/)
 
-Screenshots:
+### Screenshots:
 
-Tech stack:
+### Tech stack:
 
 Frontend: React
 State Management: Redux
@@ -27,7 +28,7 @@ Dependencies:
     "redux-form": "^8.1.0",
     "redux-thunk": "^2.3.0"
 
-Organization of code base:
+### Organization of code base:
 Everything lives in the src folder.
 -src
   -actions (holds all redux action files)
@@ -41,6 +42,9 @@ Everything lives in the src folder.
   index.js (calls ReactDOM.render, renders root App component and Provider)
   store.js (creates redux store)
   validators.js (holds redux-form validators)
+
+
+  
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
