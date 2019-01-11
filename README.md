@@ -8,6 +8,10 @@ bike routes to destinations around Denver. I found the Google Maps API with thei
 ### Link to deployed app: 
 [https://velo-maps.herokuapp.com/](https://velo-maps.herokuapp.com/)
 
+### Link to server github repo:
+[https://github.com/thinkful-ei26/Barrett-velo-maps-server]
+(https://github.com/thinkful-ei26/Barrett-velo-maps-server)
+
 ### Screenshots:
 
 - Default view:
