@@ -26,6 +26,7 @@ class MyBikeMapComponent extends React.Component {
 		}
 	}
 
+	// gets drawing coordinates
 	currentPolyline;
 	onPolylineComplete = poly => {
 		this.currentPolyline = poly;
@@ -37,6 +38,7 @@ class MyBikeMapComponent extends React.Component {
 		this.props.dispatch(saveNewRoutePath(paths));
 	}
 
+	// called by clear map button to clear the map
 	removePolyline() {
 		this.currentPolyline.setMap(null);
 	}
@@ -57,7 +59,6 @@ class MyBikeMapComponent extends React.Component {
 		
 		getPosition()
 			.then((position) => {
-
 				center = {
 					lat: parseFloat(position.coords.latitude),
 					lng: parseFloat(position.coords.longitude)
@@ -69,12 +70,28 @@ class MyBikeMapComponent extends React.Component {
 			});
 	}
 
+	// centers map on selected route
 	focusOnRoute() {
 		this.props.dispatch(setCurrentCenter(this.props.currentRoutePath[0]));
 	}
+	
+	clearMapButton
 
 	render() {
-		// ---- TODO ---- refactor conditional rendering to functions later 
+
+		// conditionally renders clear button
+		if (this.props.currentRoutePath) {
+			this.clearMapButton = null;
+		} else {
+			this.clearMapButton =
+				<button className="clear-map-button"
+					onClick={() => {
+						if (this.currentPolyline) {
+						this.removePolyline();
+					}}}>
+					Clear Map
+				</button>;
+		}
 		// clear map if Polyline Component is rendered
 		if (this.props.creatingRoute || !this.props.currentRoutePath) {
 			return (
@@ -116,15 +133,8 @@ class MyBikeMapComponent extends React.Component {
 						</GoogleMap>
 					</section>
 					
-					<button className="clear-map-button"
-						onClick={() => {
-							if (this.currentPolyline) {
-							this.removePolyline();
-						}}}
-					>
-						Clear Map
-					</button>
-								
+					{this.clearMapButton}
+				
 				</div>
 			);
 		}
@@ -192,14 +202,7 @@ class MyBikeMapComponent extends React.Component {
 						</GoogleMap>
 					</section>
 
-					<button className="clear-map-button"
-						onClick={() => {
-							if (this.currentPolyline) {
-							this.removePolyline();
-						}}}
-					>
-						Clear Map
-					</button>
+					{this.clearMapButton}
 
 				</div>
 				
