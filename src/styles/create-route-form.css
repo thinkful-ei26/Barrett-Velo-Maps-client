@@ -50,6 +50,7 @@
 }
 
 .cancelButton {
+	margin: 5px;
   box-shadow:inset 0px 1px 0px 0px #f07935;
 	background-color:#e25605;
   border-radius:6px;
@@ -69,10 +70,14 @@
 	background-color:#c54c06;
 }
 
-@media only screen and (max-width: 350px) { /*mobile styles*/
+@media only screen and (max-width: 360px) { /*mobile styles*/
 	.form-input > input {
 		border-radius: 8px;
 		width: 90%;
+	}
+
+	.addRouteForm {
+		width: 50%;
 	}
 }
 

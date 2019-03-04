@@ -7,3 +7,9 @@
 .list-header {
   margin: auto;
 }
+
+@media only screen and (max-width: 360px) {
+  .route-list-section {
+    margin-top: 10px;
+  }
+}
