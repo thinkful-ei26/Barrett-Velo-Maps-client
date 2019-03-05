@@ -4,6 +4,7 @@
 }
 
 .clear-map-button {
+	font-family : inherit;
   margin-top: 4px;
   box-shadow:inset 0px 1px 0px 0px #f07935;
 	background-color:#e25605;

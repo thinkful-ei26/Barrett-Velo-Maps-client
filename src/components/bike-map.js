@@ -16,6 +16,8 @@ import '../styles/bike-map.css';
 
 
 class MyBikeMapComponent extends React.Component {
+	clearMapButton
+	
 	componentDidMount() {
 		this.getCenter();
 	}
@@ -74,8 +76,6 @@ class MyBikeMapComponent extends React.Component {
 	focusOnRoute() {
 		this.props.dispatch(setCurrentCenter(this.props.currentRoutePath[0]));
 	}
-	
-	clearMapButton
 
 	render() {
 

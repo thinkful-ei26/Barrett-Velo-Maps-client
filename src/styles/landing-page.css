@@ -53,6 +53,7 @@
 }
 
 .help-button {
+  font-family : inherit;
   margin: 5px;
   position: absolute;
   top: 0;

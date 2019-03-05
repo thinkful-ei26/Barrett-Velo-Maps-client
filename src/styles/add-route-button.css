@@ -1,4 +1,5 @@
 .addButton {
+	font-family : inherit;
   box-shadow:inset 0px 1px 0px 0px #b5db96;
 	background-color:#49aa2b;
   border-radius:6px;
