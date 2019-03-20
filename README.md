@@ -30,25 +30,19 @@ State Management: Redux<br>
 Server: Node with Express<br>
 Database: Mongo
 
-### Organization of code base:
-Everything lives in the src folder.<br>
-- src
-  - actions (holds all redux action files)
-  - components (holds all react components)
-    - index.js (holds root App component)
-    - bike-map.js (component for the google map, handles map rendering and manipulations)
-    - add-route-button.js (handles rendering for create-routes-form.js components)
-  - reducers (holds redux reducers)
-  - styles (holds all css style sheets for react components)
- - config.js (holds config vars)
- - index.js (calls ReactDOM.render, renders root App component and Provider)
- - store.js (creates redux store)
- - validators.js (holds redux-form validators)
+### API:
 
+Bike Routes: /api/routes
 
+GET request to endpoint to get all saved bike routes.
 
+POST request to enpoint to create a new bike route.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+{
+  name, 
+  description, // optional
+  path
+}
 
 ## Available Scripts
 
